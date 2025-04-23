@@ -1,0 +1,43 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #D3EAF2; /* Light blue background from the image */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header, main, footer {
+    max-width: 640px;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    background-color: #D3EAF2; /* Light blue background */
+    box-sizing: border-box;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+main section {
+    background-color: white; /* White background for sections */
+    padding: 1rem;
+}
+
+footer {
+    text-align: center;
+}
+
+@media screen and (min-width: 500px) {
+    header {
+        background-color: black; /* Black header */
+        color: white; /* White text in header */
+    }
+
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}

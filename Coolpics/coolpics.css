@@ -1,0 +1,164 @@
+/* Get a font */
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+/* Colors and Fonts variables */
+:root {
+  --primary-color: #52489c;
+  --secondary-color: #59c3c3;
+  --accent-color: #f45b69;
+  --text-dark: #333;
+  --text-light: #ebebeb;
+  --background-light: #f8f8f8;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: 'Mooli', sans-serif;
+}
+
+/* Basic stuff for the whole page */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--primary-font);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--background-light);
+}
+
+/* Links */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Images */
+img {
+  max-width: 100%; /* Make images fit */
+  display: block;
+}
+
+/* Header section */
+header {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-family: var(--secondary-font);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 'Menu' text */
+.menu-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Navigation Menu */
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  margin: 0.5rem 0;
+}
+
+nav a {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+/* Main content area */
+main {
+  padding: 1rem;
+}
+
+main h2 {
+  font-family: var(--secondary-font);
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+/* Image Gallery */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gallery figure {
+  margin: 0;
+  border: 5px solid white;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.gallery img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover; /* Crop image */
+  display: block;
+}
+
+/* Footer section */
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+
+/* Styles for bigger screens */
+
+/* For tablet size */
+@media (min-width: 700px) {
+  .gallery {
+    /* 2 columns */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 1.5rem;
+  }
+}
+
+
+/* For desktop size */
+@media (min-width: 1000px) {
+
+  /* Make nav horizontal */
+  nav ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  nav li {
+    margin: 0 1rem; /* Space out links */
+  }
+
+  /* Hide 'Menu' text */
+  .menu-label {
+    display: none;
+  }
+
+  /* Gallery with 3 columns */
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
