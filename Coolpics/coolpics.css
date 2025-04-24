@@ -44,6 +44,11 @@ img {
   display: block;
 }
 
+/* Class to hide elements */
+.hide {
+  display: none;
+}
+
 /* Header section */
 header {
   background-color: var(--primary-color);
@@ -58,21 +63,34 @@ header h1 {
   margin-bottom: 0.5rem;
 }
 
-/* 'Menu' text */
-.menu-label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+/* Menu Button */
+#menu-button {
+  background: none;
+  border: 1px solid var(--text-light);
+  color: var(--text-light);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: var(--primary-font);
+  cursor: pointer;
+  display: block; /* Make sure it's visible */
+  margin: 0.5rem auto; /* Center the button */
 }
+
+#menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect */
+}
+
+/* 'Menu' text - REMOVED THESE STYLES */
+/* .menu-label { ... } */
 
 /* Navigation Menu */
 nav ul {
   list-style: none;
+   /* The 'hide' class will control display initially */
 }
 
 nav li {
-  margin: 0.5rem 0;
+  margin: 0.5rem 0; /* Vertical spacing for mobile view */
 }
 
 nav a {
@@ -136,26 +154,33 @@ footer {
     justify-items: center;
     gap: 1.5rem;
   }
+   /* Button still visible, nav ul still hidden/shown by JS */
 }
 
 
 /* For desktop size */
 @media (min-width: 1000px) {
 
-  /* Make nav horizontal */
+  /* Hide the Menu button */
+  #menu-button {
+    display: none;
+  }
+
+  /* Make nav horizontal and visible */
   nav ul {
-    display: flex;
+    display: flex; /* This overrides .hide class */
     justify-content: center;
+    /* No need to explicitly remove 'hide' class here,
+       display:flex takes precedence over display:none from .hide
+       when defined later in cascade/media query */
   }
 
   nav li {
-    margin: 0 1rem; /* Space out links */
+    margin: 0 1rem; /* Space out links horizontally */
   }
 
-  /* Hide 'Menu' text */
-  .menu-label {
-    display: none;
-  }
+  /* Hide 'Menu' text - REMOVED (was .menu-label) */
+  /* .menu-label { display: none; } */
 
   /* Gallery with 3 columns */
   .gallery {
