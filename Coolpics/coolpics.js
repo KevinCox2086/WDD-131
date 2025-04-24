@@ -1,34 +1,75 @@
-// Get references to the button and the navigation list
+// Mobile Menu Toggle
 const menuButton = document.querySelector('#menu-button');
-const navList = document.querySelector('nav ul');
+const navList = document.querySelector('header nav ul');
 
-// Add event listener for the button click
-menuButton.addEventListener('click', () => {
-  // Toggle the 'hide' class on the navigation list
-  navList.classList.toggle('hide');
-});
+if (menuButton && navList) {
+    menuButton.addEventListener('click', () => {
+      navList.classList.toggle('hide');
+    });
+}
 
-// --- Add the following code ---
-
-// Define the function to handle window resizing
+// Handle window resize for menu
 function handleResize() {
-  // Check the current width of the window
+  if (!navList) return;
   if (window.innerWidth > 1000) {
-    // If window is wider than 1000px, remove 'hide' class
-    // This ensures the menu is visible in desktop view
     navList.classList.remove('hide');
   } else {
-    // If window is 1000px or narrower, add 'hide' class
-    // This resets the menu to hidden in mobile view on resize
-    // Note: This will hide the menu even if it was open before resizing below 1000px
-    navList.classList.add('hide');
+    // Only hide if it's currently shown
+    if (!navList.classList.contains('hide')) {
+        navList.classList.add('hide');
+    }
+  }
+}
+window.addEventListener('resize', handleResize);
+if (navList) {
+    handleResize(); // Initial check
+}
+
+// Image Viewer
+
+// Create viewer HTML
+function viewerTemplate(picSrc, altText) {
+  return `<div class="viewer">
+    <button class="close-viewer">X</button>
+    <img src="${picSrc}" alt="${altText}">
+    </div>`;
+}
+
+// Close the viewer
+function closeViewer() {
+  const viewerElement = document.querySelector('.viewer');
+  if (viewerElement) {
+    viewerElement.remove();
   }
 }
 
-// Add an event listener to the window for the 'resize' event,
-// calling handleResize whenever the window size changes.
-window.addEventListener('resize', handleResize);
+// Handle clicks in the gallery
+function viewHandler(event) {
+  // Check if the clicked item is an image
+  if (event.target.tagName === 'IMG') {
+    const clickedImage = event.target;
+    const smallImageSrc = clickedImage.getAttribute('src');
+    const altText = clickedImage.getAttribute('alt');
 
-// Call handleResize once immediately when the script loads
-// to set the correct initial state based on the starting window size.
-handleResize();
+    // Build full image path (requires 'imagename-full.jpeg' files)
+    const srcParts = smallImageSrc.split('-');
+    // IMPORTANT: Assumes your full images are named like 'norris-full.jpeg'
+    const fullImageSrc = `${srcParts[0]}-full.jpeg`;
+
+    // Add viewer to page
+    const viewerHTML = viewerTemplate(fullImageSrc, altText);
+    document.body.insertAdjacentHTML("afterbegin", viewerHTML);
+
+    // Add listener to the new close button
+    const closeBtn = document.querySelector('.viewer .close-viewer');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeViewer);
+    }
+  }
+}
+
+// Listen for clicks in the gallery section
+const galleryElement = document.querySelector('.gallery');
+if (galleryElement) {
+    galleryElement.addEventListener('click', viewHandler);
+}

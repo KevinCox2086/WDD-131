@@ -1,7 +1,7 @@
-/* Get a font */
+/* Import Font */
 @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
 
-/* Colors and Fonts variables */
+/* Variables */
 :root {
   --primary-color: #52489c;
   --secondary-color: #59c3c3;
@@ -13,13 +13,14 @@
   --secondary-font: 'Mooli', sans-serif;
 }
 
-/* Basic stuff for the whole page */
+/* Basic Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Body Styles */
 body {
   font-family: var(--primary-font);
   font-size: 18px;
@@ -28,7 +29,7 @@ body {
   background-color: var(--background-light);
 }
 
-/* Links */
+/* Link Styles */
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -38,18 +39,18 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Images */
+/* Image Styles */
 img {
-  max-width: 100%; /* Make images fit */
+  max-width: 100%;
   display: block;
 }
 
-/* Class to hide elements */
+/* Hide Class */
 .hide {
   display: none;
 }
 
-/* Header section */
+/* Header */
 header {
   background-color: var(--primary-color);
   color: var(--text-light);
@@ -72,25 +73,22 @@ header h1 {
   font-size: 1rem;
   font-family: var(--primary-font);
   cursor: pointer;
-  display: block; /* Make sure it's visible */
-  margin: 0.5rem auto; /* Center the button */
+  display: block;
+  margin: 0.5rem auto;
 }
 
 #menu-button:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* 'Menu' text - REMOVED THESE STYLES */
-/* .menu-label { ... } */
-
-/* Navigation Menu */
+/* Navigation */
 nav ul {
   list-style: none;
-   /* The 'hide' class will control display initially */
+  padding: 0;
 }
 
 nav li {
-  margin: 0.5rem 0; /* Vertical spacing for mobile view */
+  margin: 0.5rem 0;
 }
 
 nav a {
@@ -98,7 +96,7 @@ nav a {
   font-size: 1.1rem;
 }
 
-/* Main content area */
+/* Main Content */
 main {
   padding: 1rem;
 }
@@ -111,7 +109,7 @@ main h2 {
   font-size: 2rem;
 }
 
-/* Image Gallery */
+/* Gallery */
 .gallery {
   display: flex;
   flex-direction: column;
@@ -128,11 +126,12 @@ main h2 {
 .gallery img {
   width: 250px;
   height: 250px;
-  object-fit: cover; /* Crop image */
+  object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 
-/* Footer section */
+/* Footer */
 footer {
   background-color: var(--primary-color);
   color: var(--text-light);
@@ -142,48 +141,97 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Viewer Styles */
+.viewer {
+  position: fixed;
+  inset: 0; /* top/left/bottom/right: 0 */
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
 
-/* Styles for bigger screens */
+/* Target image inside viewer specifically */
+.viewer img {
+  max-height: 85vh;
+  max-width: 95%;
+  background-color: white;
+  padding: 5px;
+  border: 1px solid #ccc;
+  display: block;
+}
 
-/* For tablet size */
+.close-viewer {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  z-index: 11; /* Make sure it's above viewer background */
+}
+
+
+/* Media Queries */
+
+/* Medium Screens */
 @media (min-width: 700px) {
   .gallery {
-    /* 2 columns */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     gap: 1.5rem;
   }
-   /* Button still visible, nav ul still hidden/shown by JS */
 }
 
 
-/* For desktop size */
+/* Large Screens */
 @media (min-width: 1000px) {
 
-  /* Hide the Menu button */
   #menu-button {
     display: none;
   }
 
-  /* Make nav horizontal and visible */
   nav ul {
-    display: flex; /* This overrides .hide class */
+    display: flex !important; /* Ensure override */
     justify-content: center;
-    /* No need to explicitly remove 'hide' class here,
-       display:flex takes precedence over display:none from .hide
-       when defined later in cascade/media query */
   }
 
   nav li {
-    margin: 0 1rem; /* Space out links horizontally */
+    margin: 0 1rem;
   }
 
-  /* Hide 'Menu' text - REMOVED (was .menu-label) */
-  /* .menu-label { display: none; } */
-
-  /* Gallery with 3 columns */
   .gallery {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Viewer on Large Screens */
+  .viewer {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: auto;
+    right: auto;
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  /* Target image inside viewer specifically on large screens */
+  .viewer img {
+     max-height: calc(80vh - 6rem); /* Account for padding */
+     max-width: calc(80vw - 6rem); /* Account for padding */
+     padding: 10px;
+     border-radius: 5px;
   }
 }
