@@ -1,0 +1,225 @@
+/* css/style.css */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* Variables / Custom Properties */
+:root {
+    --font-body: Helvetica, Arial, sans-serif;
+    --font-headline: 'Lora', Impact, serif;
+    --color-gold: #EFC69B;
+    --color-red: #AF1B3F;
+    --color-dark: #473144;
+    --color-light-background: #FAF7F2;
+    --color-white: #FFFFFF;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: var(--font-body);
+    font-size: 100%;
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-light-background);
+    padding: 1rem;
+}
+
+/* Headline Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+    color: var(--color-dark);
+    margin-bottom: 0.75em; /* Space below headlines */
+    line-height: 1.2;
+}
+
+/* Link Styles */
+a {
+    color: var(--color-red);
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover, a:focus {
+    text-decoration: underline; /* Underline on hover/focus */
+    color: var(--color-dark);
+}
+
+/* Paragraph Styles */
+p {
+    margin-bottom: 1em;
+}
+
+/* Screen-reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Site Title */
+header h1 {
+    font-size: 3.2rem;
+    color: var(--color-dark);
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 1rem;   /* Space before its border */
+    border-bottom: 2px solid var(--color-gold); /* Line under title */
+    margin-bottom: 1rem;    /* Space after its border */
+}
+
+/* Navigation Styles */
+nav {
+    width: fit-content;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-gold); /* Line below navigation */
+}
+
+nav ul {
+    list-style-type: none; /* Remove list bullets */
+    display: grid;
+    grid-template-columns: 80px 95px 85px;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--color-red);
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+/* Main Content Layout */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Articles column, Filters column */
+    gap: 2rem;
+}
+
+/* Article Card Styles */
+article.book-review {
+    display: grid;
+    grid-template-columns: 130px 1fr; /* Metadata column, Main content column */
+    gap: 1.5rem;
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+/* Review Metadata (left column in article) */
+.review-metadata p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.review-metadata .review-date {
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.review-metadata .review-rating {
+    color: var(--color-gold);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Review Main Content (right column in article) */
+.review-main-content h2 { /* Book Title */
+    color: var(--color-red);
+    font-size: 1.75rem;
+    margin-top: 0;
+    text-align: center; /* Center the title */
+    margin-bottom: 0.75rem;
+}
+
+.review-main-content figure.book-cover { /* Book Cover Container */
+    display: block;
+    width: fit-content; /* Shrink to image size */
+    margin-left: auto;  /* Center the figure */
+    margin-right: auto; /* Center the figure */
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.review-main-content figure.book-cover img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.review-main-content .review-excerpt {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: center; /* Center the excerpt text */
+}
+
+/* Filters Section Styles */
+.filters-section {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+}
+
+.filters-section p { /* Placeholder text style */
+    color: #777;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Skip to Main Content Link Styles */
+.skiptocontent a {
+    position: absolute;
+    left: 10px;
+    top: -50px;         /* Hidden off-screen */
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 0.75rem 1.25rem;
+    z-index: 99999;     /* On top of other content */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+    transition: top 0.3s ease-in-out; /* Smooth slide */
+}
+
+.skiptocontent a:focus {
+    top: 0; /* Show on focus */
+}
