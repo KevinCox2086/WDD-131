@@ -3,51 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Read for Fun</title>
-    <meta name="description" content="A website featuring book reviews and recommendations for children and young adults.">
-    <meta name="author" content="Kids Read for Fun Team">
+    <meta name="description" content="A blog showcasing reviews and information about various books.">
+    <meta name="author" content="[Your Name or Your Site's Name]">
+    <title>Book Blog - My Reading Adventures</title>
     <link rel="stylesheet" href="blog.css">
-    <script src="blog.js" defer></script>
 </head>
 <body>
     <header>
         <div class="skiptocontent">
-          <a href="#maincontent">skip to main content</a>
+            <a href="#maincontent">skip to main content</a>
         </div>
-        <h1>Kids Read for Fun</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#archive">Archive</a></li>
-                <li><a href="#search">Search</a></li>
+
+        <h1>My Book Blog</h1>
+
+        <nav class="main-navigation">
+            <ul class="main-nav-list">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Archive</a></li>
+                <li><a href="#">Search</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="maincontent"> <div class="content-wrapper">
-            <article class="book-review">
-                <aside class="review-metadata">
-                    <p class="review-date"><time datetime="2022-07-05">July 5, 2022</time></p>
-                    <p class="review-age-range">10-14</p>
-                    <p class="review-genre">Fantasy</p>
-                    <p class="review-rating">****</p>
-                </aside>
-                <section class="review-main-content">
-                    <h2>Septimus Heap Book One: Magyk</h2>
-                    <figure class="book-cover">
-                        <img src="Book cover.jpg" alt="Book cover of Septimus Heap Book One: Magyk">
-                    </figure>
-                    <p class="review-excerpt">
-                        Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus
-                    </p>
-                </section>
-            </article>
+    <main id="maincontent">
+        <section id="articles-display">
+            <div class="article-list">
+                </div>
+        </section>
 
-            <aside class="filters-section">
-                <p>Filter form will go here</p>
+        <aside id="filter-section">
+            <h2>Filters</h2>
+            <p>Filters will go here</p>
             </aside>
-        </div>
     </main>
 
-    </body>
+    <footer>
+        <p>&copy; <span id="currentYear">[Your Name or Your Site's Name]</span>. All rights reserved.</p>
+    </footer>
+
+    <script src="blog.js" defer></script> <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
 </html>

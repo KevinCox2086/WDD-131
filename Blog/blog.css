@@ -1,18 +1,5 @@
-/* css/style.css */
-
-/* Google Fonts Import */
+/* Google Font import */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-
-/* Variables / Custom Properties */
-:root {
-    --font-body: Helvetica, Arial, sans-serif;
-    --font-headline: 'Lora', Impact, serif;
-    --color-gold: #EFC69B;
-    --color-red: #AF1B3F;
-    --color-dark: #473144;
-    --color-light-background: #FAF7F2;
-    --color-white: #FFFFFF;
-}
 
 /* Basic Reset */
 * {
@@ -23,203 +10,196 @@
 
 /* Body Styles */
 body {
-    font-family: var(--font-body);
-    font-size: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
     line-height: 1.6;
-    color: var(--color-dark);
-    background-color: var(--color-light-background);
-    padding: 1rem;
+    color: #473144;
+    background-color: #ffffff;
+    padding: 0 1rem;
 }
 
-/* Headline Styles */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-headline);
-    color: var(--color-dark);
-    margin-bottom: 0.75em; /* Space below headlines */
-    line-height: 1.2;
+/* Skip Link */
+.skiptocontent a {
+    position: absolute;
+    top: -40px; /* Hidden by default */
+    left: 0;
+    background-color: #EFC69B;
+    color: #473144;
+    padding: 10px 15px;
+    z-index: 9999;
+    text-decoration: none;
+    font-weight: bold;
+}
+.skiptocontent a:focus {
+    top: 0; /* Visible on focus */
 }
 
-/* Link Styles */
-a {
-    color: var(--color-red);
-    text-decoration: none; /* Remove underline */
+/* Page Structure Centering */
+header, main, footer {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-a:hover, a:focus {
-    text-decoration: underline; /* Underline on hover/focus */
-    color: var(--color-dark);
-}
-
-/* Paragraph Styles */
-p {
-    margin-bottom: 1em;
-}
-
-/* Screen-reader only text */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Header Styles */
+/* Header */
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 2rem;
+    padding-top: 2.5rem;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
 }
-
-/* Site Title */
 header h1 {
-    font-size: 3.2rem;
-    color: var(--color-dark);
+    font-family: Helvetica, Arial, sans-serif;
+    color: #473144;
+    font-size: 2.8rem;
     text-align: center;
-    margin-bottom: 0;
-    padding-bottom: 1rem;   /* Space before its border */
-    border-bottom: 2px solid var(--color-gold); /* Line under title */
-    margin-bottom: 1rem;    /* Space after its border */
+    margin-bottom: 1.5rem;
 }
 
-/* Navigation Styles */
-nav {
-    width: fit-content;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--color-gold); /* Line below navigation */
+/* Navigation */
+nav.main-navigation {
+    border-top: 1px solid #EFC69B;
+    border-bottom: 1px solid #EFC69B;
+    padding: 0.75rem 0;
 }
-
-nav ul {
-    list-style-type: none; /* Remove list bullets */
+ul.main-nav-list {
+    list-style: none;
     display: grid;
-    grid-template-columns: 80px 95px 85px;
-    gap: 1.5rem;
-    padding: 0;
+    grid-template-columns: auto auto auto;
+    justify-content: end; /* Align nav items right */
+    gap: 25px;
 }
-
-nav a {
+.main-nav-list a {
     display: block;
     text-align: center;
-    font-size: 1.15rem;
-    font-weight: bold;
-    color: var(--color-red);
-    padding: 0.5rem 0;
+    color: #AF1B3F;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
     text-decoration: none;
 }
-
-nav a:hover,
-nav a:focus {
-    color: var(--color-dark);
+.main-nav-list a:hover,
+.main-nav-list a:focus {
+    color: #EFC69B;
     text-decoration: underline;
 }
 
-/* Main Content Layout */
-.content-wrapper {
+/* Main Content & Sidebar Layout */
+main {
     display: grid;
-    grid-template-columns: 3fr 1fr; /* Articles column, Filters column */
-    gap: 2rem;
+    grid-template-columns: 1fr 280px; /* Main column, fixed sidebar */
+    grid-template-areas: "articles filters";
+    gap: 30px;
 }
-
-/* Article Card Styles */
-article.book-review {
-    display: grid;
-    grid-template-columns: 130px 1fr; /* Metadata column, Main content column */
-    gap: 1.5rem;
-    background-color: var(--color-white);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
+#articles-display {
+    grid-area: articles;
 }
-
-/* Review Metadata (left column in article) */
-.review-metadata p {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.review-metadata .review-date {
-    font-weight: bold;
-    color: var(--color-dark);
-}
-
-.review-metadata .review-rating {
-    color: var(--color-gold);
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-/* Review Main Content (right column in article) */
-.review-main-content h2 { /* Book Title */
-    color: var(--color-red);
-    font-size: 1.75rem;
-    margin-top: 0;
-    text-align: center; /* Center the title */
-    margin-bottom: 0.75rem;
-}
-
-.review-main-content figure.book-cover { /* Book Cover Container */
-    display: block;
-    width: fit-content; /* Shrink to image size */
-    margin-left: auto;  /* Center the figure */
-    margin-right: auto; /* Center the figure */
-    margin-top: 0.5rem;
-    margin-bottom: 1.25rem;
-}
-
-.review-main-content figure.book-cover img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.review-main-content .review-excerpt {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    text-align: center; /* Center the excerpt text */
-}
-
-/* Filters Section Styles */
-.filters-section {
-    background-color: var(--color-white);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+#filter-section {
+    grid-area: filters;
+    border: 1px solid #EFC69B;
+    padding: 20px;
     height: fit-content;
 }
-
-.filters-section p { /* Placeholder text style */
-    color: #777;
-    font-style: italic;
-    text-align: center;
+#filter-section h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #473144;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
-/* Skip to Main Content Link Styles */
-.skiptocontent a {
-    position: absolute;
-    left: 10px;
-    top: -50px;         /* Hidden off-screen */
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    padding: 0.75rem 1.25rem;
-    z-index: 99999;     /* On top of other content */
-    text-decoration: none;
+/* Article Posts */
+article.blog-post {
+    display: grid;
+    grid-template-columns: 130px auto; /* Metadata column, content column */
+    gap: 25px;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+article.blog-post:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Article Metadata (Left Column) */
+.article-metadata {
+    font-size: 0.85rem;
+    color: #555555;
+    text-align: right;
+    border-right: 1px solid #eeeeee;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+.article-metadata p {
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+}
+.article-metadata .meta-date {
+    font-size: 1.1em;
     font-weight: bold;
-    border-radius: 0 0 6px 6px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
-    transition: top 0.3s ease-in-out; /* Smooth slide */
+    color: #473144;
+}
+.meta-stars {
+    color: #EFC69B;
+    font-size: 1rem;
 }
 
-.skiptocontent a:focus {
-    top: 0; /* Show on focus */
+/* Article Main Content (Right Column) */
+.article-main-content h3 {
+    margin-top: 0.15em; /* Helps align with date */
+    margin-bottom: 0.75rem;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+}
+.article-main-content h3 a {
+    color: #AF1B3F;
+    text-decoration: none;
+}
+.article-main-content h3 a:hover {
+    color: #EFC69B;
+    text-decoration: underline;
+}
+.article-main-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border: 1px solid #eee;
+    display: block; /* For centering */
+    margin-left: auto;
+    margin-right: auto;
+}
+.article-main-content .description {
+    font-size: 1rem;
+    color: #473144;
+    margin-bottom: 1rem;
+}
+.article-main-content .read-more {
+    color: #AF1B3F;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.article-main-content .read-more:hover {
+    color: #EFC69B;
+    text-decoration: underline;
+}
+
+/* General Heading Fallbacks (if not specifically overridden) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+    color: #AF1B3F;
+    line-height: 1.3;
+}
+
+/* Footer */
+footer {
+    background-color: transparent;
+    color: #473144;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #EFC69B;
+}
+footer p {
+    margin-bottom: 0;
 }
