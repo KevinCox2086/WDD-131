@@ -1,0 +1,150 @@
+/* Basic Body Styles */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+/* Form Container Grid */
+.card-form {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    width: 400px;
+}
+
+/* Card Styling and Overlap */
+.card-front,
+.card-back {
+    background: linear-gradient(135deg, #6B73FF, #000DFF);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Place all cards in the same grid cell */
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    transition: transform 0.6s;
+}
+
+.card-back {
+    z-index: 1;
+    /* Basic positioning for back content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-front {
+    z-index: 2;
+}
+
+/* Card Front Grid Layout */
+.card-front {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "header header header header"
+        "number number number number"
+        "holder holder expiry expiry";
+    gap: 20px;
+}
+
+.card-header { grid-area: header; }
+.card-number-container { grid-area: number; }
+.card-holder-container { grid-area: holder; }
+.expiration-container { grid-area: expiry; }
+
+/* Card Back Content Styling */
+.magnetic-stripe {
+    background-color: #333;
+    height: 50px;
+    margin: -25px -25px 20px -25px; /* Extend to edges */
+}
+
+.cvc-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.cvc-container input {
+    width: 60px;
+    text-align: right;
+}
+
+/* General Form Element Styling */
+label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus {
+    outline: none;
+    border-color: #fef867;
+    box-shadow: 0 0 10px rgba(254, 248, 103, 0.5);
+}
+
+/* Specific Layout Adjustments */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-image {
+    height: 55px; /* As specified */
+}
+
+.expiration-container .exp-inputs {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.expiration-container span {
+    font-size: 1.2rem;
+}
+
+/* Submit Button */
+.submit-btn {
+    grid-row: 2 / 3;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
