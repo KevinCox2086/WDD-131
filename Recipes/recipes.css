@@ -1,0 +1,234 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+/* Define custom properties for colors and fonts */
+:root {
+    --primary-color: #f8981d; /* A warm orange for accents */
+    --secondary-color: #59c3c3; /* A teal for secondary elements */
+    --text-dark: #333;
+    --text-light: #ebebeb;
+    --bg-light: #f9f9f9;
+    --border-color: #ddd;
+    --primary-font: Arial, Helvetica, sans-serif;
+    --secondary-font: 'Patrick Hand', cursive; /* Accessible handwritten font */
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--primary-font);
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content img {
+    height: 50px;
+    margin-right: 0.75rem;
+}
+
+.header-content h1 {
+    font-family: var(--secondary-font);
+    font-size: 2.5rem;
+}
+
+
+/* Main Content Styles */
+main {
+    padding: 1rem;
+}
+
+/* Search Form Styles */
+.search-form {
+    margin-bottom: 2rem;
+}
+
+.search-wrapper {
+    display: flex;
+    position: relative;
+}
+
+#search-input {
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.search-form button {
+    background-color: transparent;
+    border: none;
+    padding: 0 1rem;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search-form button svg {
+    height: 24px;
+    width: 24px;
+    stroke: var(--text-dark);
+}
+
+/* Recipe Card Styles */
+#recipe-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.recipe-card {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card-content .tags span {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.card-content h2 {
+    font-family: var(--secondary-font);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.rating {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.rating span {
+    color: #ffc107; /* Yellow for stars */
+}
+.rating .star-empty {
+    color: #ccc;
+}
+
+.card-content p {
+    display: none;
+}
+
+/* Footer Styles */
+footer {
+    background-color: white;
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.social {
+    margin-bottom: 1rem;
+}
+
+.social a {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.social img {
+    height: 24px;
+}
+
+.attribution {
+    font-size: 0.6em;
+}
+
+.copyright {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* --- Responsive Styles --- */
+
+@media screen and (min-width: 600px) {
+    .recipe-card {
+        flex-direction: row;
+    }
+    .recipe-card img {
+       width: 250px;
+       height: auto;
+       object-fit: cover;
+    }
+    .card-content {
+        flex: 1;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .card-content p {
+        display: block; /* Show description on larger screens */
+    }
+}
+
+@media screen and (min-width: 960px) {
+    main {
+       max-width: 960px;
+       margin: 0 auto;
+    }
+}
