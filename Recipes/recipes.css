@@ -1,19 +1,16 @@
-/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
-/* Define custom properties for colors and fonts */
 :root {
-    --primary-color: #f8981d; /* A warm orange for accents */
-    --secondary-color: #59c3c3; /* A teal for secondary elements */
+    --primary-color: #f8981d;
+    --secondary-color: #59c3c3;
     --text-dark: #333;
     --text-light: #ebebeb;
     --bg-light: #f9f9f9;
     --border-color: #ddd;
     --primary-font: Arial, Helvetica, sans-serif;
-    --secondary-font: 'Patrick Hand', cursive; /* Accessible handwritten font */
+    --secondary-font: 'Patrick Hand', cursive;
 }
 
-/* Global Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -31,7 +28,6 @@ img {
     display: block;
 }
 
-/* Header Styles */
 header {
     background-color: white;
     padding: 1rem;
@@ -55,13 +51,10 @@ header {
     font-size: 2.5rem;
 }
 
-
-/* Main Content Styles */
 main {
     padding: 1rem;
 }
 
-/* Search Form Styles */
 .search-form {
     margin-bottom: 2rem;
 }
@@ -103,7 +96,6 @@ main {
     stroke: var(--text-dark);
 }
 
-/* Recipe Card Styles */
 #recipe-container {
     display: flex;
     flex-direction: column;
@@ -155,7 +147,7 @@ main {
     margin-bottom: 1rem;
 }
 .rating span {
-    color: #ffc107; /* Yellow for stars */
+    color: #ffc107;
 }
 .rating .star-empty {
     color: #ccc;
@@ -165,7 +157,6 @@ main {
     display: none;
 }
 
-/* Footer Styles */
 footer {
     background-color: white;
     border-top: 1px solid var(--border-color);
@@ -205,8 +196,6 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* --- Responsive Styles --- */
-
 @media screen and (min-width: 600px) {
     .recipe-card {
         flex-direction: row;
@@ -222,7 +211,7 @@ footer a:hover {
         text-align: left;
     }
     .card-content p {
-        display: block; /* Show description on larger screens */
+        display: block;
     }
 }
 
