@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Libre+Baskerville&display=swap');
+
+.home-title {
+    font-family: 'Cinzel', 'Baskerville', sans-serif;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+header {
+    background-color: #55868C;
+    display: grid;
+    grid-template-columns: 150px auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.25em;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 35px;
+}
+
+nav a:hover {
+    background-color: #79BE49;
+    color: white;
+}
+
+.logo {
+    width: 110px;
+}
+
+#logo_link {
+    padding-top: 5px;
+    justify-self: center;
+    align-self: center;
+}
+
+.icon {
+    width: 80px;
+}
+
+body {
+    background-color: #dddbcb ;
+    color: #1f487e;
+    font-family: 'Cinzel', 'Baskerville', sans-serif;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+}
+
+#background {
+    height: 725px;
+    background-color: #79BE49;
+    color: #8C271E;
+}
+
+.home-content {
+    font-size: .5em;
+    color: #8C271E;
+}
+
+#logobig1 {
+    display: flex;
+    justify-content: center;
+}
+
+#logobig2 {
+    border-radius: 5px;
+    border: 5px solid #0C1B33;
+}
+
+h1 {
+    text-align: center;
+    font-size: 10em;
+}
+
+h2 {
+    text-align: center;
+    font-size: 5em;
+    color: #1f487e
+}
+
+#content2 {
+    max-width: 1600px;
+    margin: 0 auto;
+    font-size: 2em;
+    color: #0C1B33;
+    text-align: center;
+}
+
+#content2 p {
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+#hotsteel1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#hotsteel2 {
+    border-radius: 5px;
+    border: 5px solid #0C1B33;
+}
+
+#hammerandanvil1 {
+    display: flex;
+    justify-content: center;
+}
+
+#hammerandanvil2 {
+    border-radius: 5px;
+    border: 5px solid #0C1B33;
+}
+
+#leaf1 {
+    display: flex;
+    justify-content: center;
+}
+
+#leaf2 {
+    border-radius: 5px;
+    border: 5px solid #0C1B33;
+}
+
+#forge1 {
+    display: flex;
+    justify-content: center;
+}
+
+#forge2 {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+#knives1 {
+    display: flex;
+    justify-content: center;
+}
+
+#knives2 {
+    border-radius: 5px;
+    border: 5px solid #0C1B33;
+}
+
+#forge3 {
+    border-radius: 5px;
+    border: 5px solid #0C1B33;
+}
+
+h4 {
+    color: black;
+}
+
+.icon {
+    padding-top: 10px;
+}
+
+.button-box {
+    text-align: center;
+}
+
+footer {
+    background-color: #0C1B33;
+    color: white;
+    padding: 25px 50px;
+    margin-top: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer p {
+    font-size: 1.2em;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+footer a {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+}
+
+footer .social img {
+    padding-top: 15px;
+}
+
+@media screen and (max-width: 900px) {
+    #hero, .home-grid {
+        display: block;
+        height: auto;
+    }
+    nav, footer {
+        flex-direction: column;
+    }
+    nav a {
+        display: block;
+        padding: 15px;
+    }
+    #hero {
+        margin-top: 0;
+    }
+    #hero-msg {
+        margin-top: 0;
+    }
+    #hero-msg h4 {
+        display: none;
+    }
+    .home-title {
+        font-size: 25px;
+        color: #6f7364;
+    }
+    .rivers-card, .camping-card, .rapids-card {
+        margin: 50px auto;
+        width: 60%;
+    }
+    #background {
+        display: none;
+    }
+    .mountains, .msg {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+    footer {
+        margin-top: 25px;
+    }
+}
+
+#class-list-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+#class-list-container li {
+    background-color: #f0efe2;
+    border-left: 5px solid #79BE49;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.featured-badge {
+    background-color: #8C271E;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+#quoteBtn {
+    background-color: #1f487e;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Cinzel', serif;
+}
+
+#quoteBtn:hover {
+    background-color: #55868C;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #dddbcb;
+    color: #0C1B33;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content label {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.modal-content input, .modal-content textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.9em;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    background-color: #1f487e;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Cinzel', serif;
+}
+
+.modal-content button:hover {
+    background-color: #55868C;
+}
+
+.mailing-list {
+    max-width: 800px;
+    margin: 100px auto 50px auto;
+    padding: 40px;
+    background-color: #f0efe2;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #0C1B33;
+}
+
+.mailing-list h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.mailing-list p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+
+#mailingListForm input[type="email"] {
+    padding: 15px;
+    width: 60%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+#mailingListForm button {
+    background-color: #1f487e;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Cinzel', serif;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#mailingListForm button:hover {
+    background-color: #55868C;
+}
+
+.confirmation-message {
+    margin-top: 20px;
+    color: #79BE49;
+    font-weight: bold;
+    min-height: 1.2em;
+}
+
+.offerings-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.offerings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.offering-card {
+    background-color: rgba(12, 27, 51, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #0C1B33;
+}
+
+.offering-card h3 {
+    font-size: 2.5em;
+    color: #1f487e;
+}
+
+.offering-card p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.page-link-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #1f487e;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.page-link-btn:hover {
+    background-color: #0C1B33;
+}
